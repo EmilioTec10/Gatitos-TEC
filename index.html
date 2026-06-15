@@ -1,270 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Gatitos Tec</title>
-      <link rel="stylesheet" href="./styles.css" />
-    </head>
-    <body>
-      <main class="page-shell">
-        <section class="mobile-app" aria-label="Flujo de Gatitos Tec" data-node-id="1:2">
-          <header class="topbar">
-            <img
-              class="topbar__logo"
-              src="http://localhost:3845/assets/563665266771cc2061ee06a1644e4c62650b7317.png"
-              alt="Logo de Gatitos Tec"
-            />
-            <h1>Gatitos Tec</h1>
-          </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gatitos Tec</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="mobile-app" aria-label="Flujo de Gatitos Tec" data-node-id="1:2">
+        <header class="topbar">
+          <img
+            class="topbar__logo"
+            src="http://localhost:3845/assets/563665266771cc2061ee06a1644e4c62650b7317.png"
+            alt="Logo de Gatitos Tec"
+          />
+          <h1>Gatitos Tec</h1>
+        </header>
 
-          <div class="screen-bg"></div>
+        <div class="screen-bg"></div>
 
-          <div class="view-stack">
-            <section class="app-view is-active" data-view="home" aria-labelledby="home-title">
-              <div class="content-scroll">
-                <section class="home-card">
-                  <div class="card-header">
-                    <div class="title-row">
-                      <img class="title-icon" src="http://localhost:3845/assets/abb15d48e29365b91b02d433d77279489d3aa6c0.svg" alt="" aria-hidden="true" />
-                      <h2 id="home-title">Control Manual y Simulacion</h2>
-                    </div>
-                    <p>Alimenta manualmente o simula deteccion de sensor.</p>
+        <div class="view-stack">
+          <section class="app-view is-active" data-view="home" aria-labelledby="home-title">
+            <div class="content-scroll">
+              <section class="home-card">
+                <div class="card-header">
+                  <div class="title-row">
+                    <img class="title-icon" src="http://localhost:3845/assets/abb15d48e29365b91b02d433d77279489d3aa6c0.svg" alt="" aria-hidden="true" />
+                    <h2 id="home-title">Control Manual y Simulacion</h2>
                   </div>
+                  <p>Alimenta manualmente o simula deteccion de sensor.</p>
+                </div>
 
-                  <form class="control-form" id="feeding-form">
-                    <label class="field">
-                      <span>Selecciona dispensador</span>
-                      <select id="dispenser-select" class="soft-input">
-                        <option value="">Elige un dispensador</option>
-                        <option value="Soda El Lago">Soda El Lago</option>
-                        <option value="Forestal">Forestal</option>
-                        <option value="D3">D3</option>
-                      </select>
-                    </label>
-
-                    <label class="field">
-                      <span>Selecciona gato</span>
-                      <select id="cat-select" class="soft-input" disabled>
-                        <option value="">Elige un gato</option>
-                      </select>
-                    </label>
-
-                    <label class="field">
-                      <span>Encargado</span>
-                      <input id="caretaker-input" class="soft-input" type="text" placeholder="Tu nombre" maxlength="40" />
-                    </label>
-
-                    <div class="field">
-                      <span>Porciones a servir</span>
-                      <div class="portion-grid" role="group" aria-label="Porciones a servir">
-                        <button class="portion-pill" type="button" data-portion="1">1</button>
-                        <button class="portion-pill" type="button" data-portion="2">2</button>
-                        <button class="portion-pill" type="button" data-portion="3">3</button>
-                        <button class="portion-pill" type="button" data-portion="4">4</button>
-                        <button class="portion-pill" type="button" data-portion="5">5</button>
-                      </div>
-                      <p class="portion-copy">Cada porcion pesa aprox. 10g · Total: <strong id="portion-total">0g</strong></p>
-                    </div>
-
-                    <div class="action-stack">
-                      <button id="manual-feed" class="action-button action-button--primary" type="submit" disabled>
-                        <img src="http://localhost:3845/assets/df345d1972659ac442171e99a1bc733e7136878a.svg" alt="" aria-hidden="true" />
-                        Alimentar Manual
-                      </button>
-                      <button id="sensor-feed" class="action-button action-button--secondary" type="button" disabled>
-                        <img src="http://localhost:3845/assets/96e3c31324396d23f5f4bd0dae56ee8177f52d6f.svg" alt="" aria-hidden="true" />
-                        Simular Sensor
-                      </button>
-                    </div>
-                  </form>
-
-                  <label class="upload-card" for="photo-upload">
-                    <img class="upload-card__bg" src="http://localhost:3845/assets/b3ec83e5a9898e13864200377952d5c558847b67.png" alt="" aria-hidden="true" />
-                    <div class="upload-card__overlay">
-                      <img class="upload-card__icon" src="http://localhost:3845/assets/8692d68d1f9e294242d072b8c55e27ace31a43c5.svg" alt="" aria-hidden="true" />
-                      <strong>Sube fotos de los gatitos</strong>
-                      <span>Toca para elegir imagenes</span>
-                    </div>
-                    <input id="photo-upload" type="file" accept="image/*" multiple hidden />
+                <form class="control-form" id="feeding-form">
+                  <label class="field">
+                    <span>Selecciona dispensador</span>
+                    <select id="dispenser-select" class="soft-input">
+                      <option value="">Elige un dispensador</option>
+                      <option value="Soda El Lago">Soda El Lago</option>
+                      <option value="Forestal">Forestal</option>
+                      <option value="D3">D3</option>
+                    </select>
                   </label>
 
-                  <ul class="upload-preview" id="upload-preview" aria-live="polite"></ul>
-                </section>
-                <p class="activity-note" id="home-note" aria-live="polite">Completa el formulario para registrar una nueva alimentacion.</p>
-              </div>
-            </section>
+                  <label class="field">
+                    <span>Selecciona gato</span>
+                    <select id="cat-select" class="soft-input" disabled>
+                      <option value="">Elige un gato</option>
+                    </select>
+                  </label>
 
-            <section class="app-view" data-view="dispensers" aria-labelledby="dispensers-title">
-              <div class="content-scroll">
-                <section class="intro-block">
-                  <h2 id="dispensers-title">Dispensadores</h2>
-                  <p class="intro-copy">Toca <img src="http://localhost:3845/assets/2219124880c56f1e50ea49aa2ecd511e2b79e940.svg" alt="" aria-hidden="true" /> para configurar cada dispensador</p>
-                </section>
+                  <label class="field">
+                    <span>Encargado</span>
+                    <input id="caretaker-input" class="soft-input" type="text" placeholder="Tu nombre" maxlength="40" />
+                  </label>
 
-                <section class="reserve-section" aria-labelledby="reserve-title">
-                  <div class="section-label">
-                    <img src="http://localhost:3845/assets/c182faae6eb7dc01a4bcb6c7797260a654372c41.svg" alt="" aria-hidden="true" />
-                    <span>Reserva General</span>
+                  <div class="field">
+                    <span>Porciones a servir</span>
+                    <div class="portion-grid" role="group" aria-label="Porciones a servir">
+                      <button class="portion-pill" type="button" data-portion="1">1</button>
+                      <button class="portion-pill" type="button" data-portion="2">2</button>
+                      <button class="portion-pill" type="button" data-portion="3">3</button>
+                      <button class="portion-pill" type="button" data-portion="4">4</button>
+                      <button class="portion-pill" type="button" data-portion="5">5</button>
+                    </div>
+                    <p class="portion-copy">Cada porcion pesa aprox. 10g · Total: <strong id="portion-total">0g</strong></p>
                   </div>
 
-                  <article class="reserve-card">
-                    <div class="reserve-card__top">
-                      <div class="reserve-meta">
-                        <div class="reserve-icon-wrap">
-                          <img src="http://localhost:3845/assets/7960fb08f2b4d31c3e53ebc67f64759607ac0f8b.svg" alt="" aria-hidden="true" />
-                        </div>
-                        <div>
-                          <h3 id="reserve-title">Locker de Reservas</h3>
-                          <p>Actualizado por Sistema · 15 jun, 11:48</p>
-                          <div class="reserve-tags">
-                            <span>📍 FEITEC</span>
-                            <span>🔑 1677</span>
-                          </div>
-                        </div>
-                      </div>
-                      <button class="icon-action icon-action--soft" type="button" id="reserve-settings" aria-label="Configurar reserva general">
-                        <img src="http://localhost:3845/assets/99270326ed7a838fcf7dcb045aabc9b963b34bd3.svg" alt="" aria-hidden="true" />
-                      </button>
-                    </div>
-
-                    <div class="reserve-card__body">
-                      <div class="reserve-kpi-row">
-                        <p class="reserve-kpi"><span id="reserve-value">25.0</span><small>kg</small></p>
-                        <p class="reserve-copy">disponibles en reserva</p>
-                      </div>
-
-                      <div class="meter meter--reserve" aria-label="Nivel de reserva general">
-                        <div class="meter__track"><div class="meter__fill meter__fill--reserve" id="reserve-fill" style="width: 50%"></div></div>
-                        <div class="meter__labels"><span>0 kg</span><span>50 kg max.</span></div>
-                      </div>
-
-                      <button class="dashed-action" id="reserve-update" type="button">+ Actualizar cantidad de reserva</button>
-                    </div>
-                  </article>
-                </section>
-
-                <div class="divider-title" aria-hidden="true"><span></span><strong>Dispensadores</strong><span></span></div>
-
-                <section class="dispenser-list">
-                  <article class="dispenser-card dispenser-card--lavender" data-dispenser="Soda El Lago">
-                    <button class="icon-action icon-action--primary configure-dispenser" type="button" aria-label="Configurar Soda El Lago">
-                      <img src="http://localhost:3845/assets/a8ccf26b1c48f639306dc13024ef88e6a709e8d2.svg" alt="" aria-hidden="true" />
+                  <div class="action-stack">
+                    <button id="manual-feed" class="action-button action-button--primary" type="submit" disabled>
+                      <img src="http://localhost:3845/assets/df345d1972659ac442171e99a1bc733e7136878a.svg" alt="" aria-hidden="true" />
+                      Alimentar Manual
                     </button>
-                    <div class="dispenser-card__header"><h3>Soda El Lago</h3></div>
-                    <div class="metric-row">
-                      <div class="metric-label"><img src="http://localhost:3845/assets/71ec52319785187013d5a89ee09f267f56976b66.svg" alt="" aria-hidden="true" /><span>Nivel de tolva</span></div>
-                      <strong>8.5kg</strong>
-                    </div>
-                    <div class="meter"><div class="meter__track"><div class="meter__fill meter__fill--purple" style="width: 85%"></div></div><p>85% de capacidad</p></div>
-                    <div class="soft-stat"><div class="metric-label"><img src="http://localhost:3845/assets/bfd2faab126b1415aa480b8855df5bd2c60d1cbc.svg" alt="" aria-hidden="true" /><span>Intervalo minimo</span></div><strong>15 min</strong></div>
-                    <div class="assigned-row"><div class="metric-label"><span aria-hidden="true">🐱</span><span>Gatos asignados</span></div><div class="cat-tags"><span>Michi</span><span>Luna</span></div></div>
-                    <div class="footer-row"><div class="metric-label"><img src="http://localhost:3845/assets/c2771b8ca2b7e36a20948105203958dd555fa579.svg" alt="" aria-hidden="true" /><span>Hoy</span></div><strong>2 veces</strong></div>
-                  </article>
-
-                  <article class="dispenser-card dispenser-card--neutral" data-dispenser="Forestal">
-                    <button class="icon-action icon-action--primary configure-dispenser" type="button" aria-label="Configurar Forestal">
-                      <img src="http://localhost:3845/assets/a8ccf26b1c48f639306dc13024ef88e6a709e8d2.svg" alt="" aria-hidden="true" />
+                    <button id="sensor-feed" class="action-button action-button--secondary" type="button" disabled>
+                      <img src="http://localhost:3845/assets/96e3c31324396d23f5f4bd0dae56ee8177f52d6f.svg" alt="" aria-hidden="true" />
+                      Simular Sensor
                     </button>
-                    <div class="dispenser-card__header dispenser-card__header--status"><h3>Forestal</h3><span class="status-badge status-badge--offline"><img src="http://localhost:3845/assets/b32f9c39c68ac7b45e188edd34293aa2b79c8903.svg" alt="" aria-hidden="true" />Desconectado</span></div>
-                    <div class="metric-row"><div class="metric-label"><img src="http://localhost:3845/assets/71ec52319785187013d5a89ee09f267f56976b66.svg" alt="" aria-hidden="true" /><span>Nivel de tolva</span></div><strong>6.2kg</strong></div>
-                    <div class="meter"><div class="meter__track"><div class="meter__fill meter__fill--purple" style="width: 62%"></div></div><p>62% de capacidad</p></div>
-                    <div class="soft-stat"><div class="metric-label"><img src="http://localhost:3845/assets/bfd2faab126b1415aa480b8855df5bd2c60d1cbc.svg" alt="" aria-hidden="true" /><span>Intervalo minimo</span></div><strong>15 min</strong></div>
-                    <div class="assigned-row"><div class="metric-label"><span aria-hidden="true">🐱</span><span>Gatos asignados</span></div><div class="cat-tags"><span>Pelusa</span><span>Tigre</span></div></div>
-                    <div class="footer-row"><div class="metric-label"><img src="http://localhost:3845/assets/c2771b8ca2b7e36a20948105203958dd555fa579.svg" alt="" aria-hidden="true" /><span>Hoy</span></div><strong>1 vez</strong></div>
-                  </article>
+                  </div>
+                </form>
 
-                  <article class="dispenser-card dispenser-card--warm" data-dispenser="D3">
-                    <button class="icon-action icon-action--primary configure-dispenser" type="button" aria-label="Configurar D3">
-                      <img src="http://localhost:3845/assets/a8ccf26b1c48f639306dc13024ef88e6a709e8d2.svg" alt="" aria-hidden="true" />
-                    </button>
-                    <div class="dispenser-card__header dispenser-card__header--status"><h3>D3</h3><span class="status-badge status-badge--low"><img src="http://localhost:3845/assets/cbe12d571f0fd38b290fa25cd68811fc2140380d.svg" alt="" aria-hidden="true" />Bajo</span></div>
-                    <div class="metric-row"><div class="metric-label"><img src="http://localhost:3845/assets/71ec52319785187013d5a89ee09f267f56976b66.svg" alt="" aria-hidden="true" /><span>Nivel de tolva</span></div><strong>1.5kg</strong></div>
-                    <div class="meter"><div class="meter__track"><div class="meter__fill meter__fill--warm" style="width: 15%"></div></div><p>15% de capacidad</p></div>
-                    <div class="soft-stat"><div class="metric-label"><img src="http://localhost:3845/assets/bfd2faab126b1415aa480b8855df5bd2c60d1cbc.svg" alt="" aria-hidden="true" /><span>Intervalo minimo</span></div><strong>15 min</strong></div>
-                    <div class="assigned-row"><div class="metric-label"><span aria-hidden="true">🐱</span><span>Gatos asignados</span></div><div class="cat-tags"><span>Nala</span><span>Simba</span></div></div>
-                    <div class="footer-row"><div class="metric-label"><img src="http://localhost:3845/assets/c2771b8ca2b7e36a20948105203958dd555fa579.svg" alt="" aria-hidden="true" /><span>Hoy</span></div><strong>1 vez</strong></div>
-                  </article>
-                </section>
-                <p class="activity-note" id="dispensers-note" aria-live="polite">Selecciona un dispensador para volver al control manual con ese contexto.</p>
-              </div>
-            </section>
-
-            <section class="app-view" data-view="history" aria-labelledby="history-title">
-              <div class="content-scroll">
-                <section class="intro-block">
-                  <h2 id="history-title">Historial</h2>
-                  <p class="intro-copy intro-copy--plain">Revisa todas las alimentaciones</p>
-                </section>
-
-                <section class="history-filters" aria-labelledby="filters-title">
-                  <article class="panel-card">
-                    <div class="panel-card__header">
-                      <div class="title-row title-row--small">
-                        <img class="title-icon title-icon--small" src="http://localhost:3845/assets/cb93d422462fb633957fc62a57795cd9d81da726.svg" alt="" aria-hidden="true" />
-                        <h3 id="filters-title">Filtros</h3>
-                      </div>
-                    </div>
-                    <div class="panel-card__body">
-                      <label class="field">
-                        <span class="visually-hidden">Filtro por dispensador</span>
-                        <select id="filter-dispenser" class="history-control">
-                          <option value="all">Todos los dispensadores</option>
-                          <option value="Soda El Lago">Soda El Lago</option>
-                          <option value="Forestal">Forestal</option>
-                          <option value="D3">D3</option>
-                        </select>
-                      </label>
-                      <div class="history-filter-row">
-                        <label class="field field--compact">
-                          <span class="visually-hidden">Filtro por tipo</span>
-                          <select id="filter-type" class="history-control">
-                            <option value="all">Todos</option>
-                            <option value="manual">Manual</option>
-                            <option value="sensor">Sensor</option>
-                          </select>
-                        </label>
-                        <button id="date-sort" class="history-sort-button" type="button" aria-pressed="false">
-                          <span>Fecha</span>
-                          <img src="http://localhost:3845/assets/ce0f098391d6cb1dc33240b96bd9b764eb11dfbe.svg" alt="" aria-hidden="true" />
-                        </button>
-                      </div>
-                    </div>
-                  </article>
-                </section>
-
-                <section class="history-groups" id="history-groups" aria-label="Lista de alimentaciones por fecha"></section>
-                <p class="activity-note" id="history-note" aria-live="polite">Ajusta los filtros para revisar el historial de alimentaciones.</p>
-              </div>
-            </section>
-          </div>
-
-          <nav class="bottom-nav" aria-label="Navegacion principal">
-            <button class="nav-link nav-link--active" type="button" data-nav-target="home">
-              <img src="http://localhost:3845/assets/d9931d139a7a04a86ff25e774000b4b2bc3bdb26.svg" alt="" aria-hidden="true" />
-              <span>Inicio</span>
-            </button>
-            <button class="nav-link" type="button" data-nav-target="dispensers">
-              <img src="http://localhost:3845/assets/fddca2bdd6c7327ac84943debaba67d35100d28c.svg" alt="" aria-hidden="true" />
-              <span>Dispensadores</span>
-            </button>
-            <button class="nav-link" type="button" data-nav-target="history">
-              <img src="http://localhost:3845/assets/8d3df9fe2c44575f01c1121a9fba03fe899a1982.svg" alt="" aria-hidden="true" />
-              <span>Historial</span>
-            </button>
-          </nav>
-        </section>
-      </main>
-
-      <script src="./script.js"></script>
-    </body>
-  </html>
+                <label class="upload-card" for="photo-upload">
+                  <img class="upload-card__bg" src="http://localhost:3845/assets/b3ec83e5a9898e13864200377952d5c558847b67.png" alt="" aria-hidden="true" />
+                  <div class="upload-card__overlay">
+                    <img class="upload-card__icon" src="http://localhost:3845/assets/8692d68d1f9e294242d072b8c55e27ace31a43c5.svg" alt="" aria-hidden="true" />
+                    <strong>Sube fotos de los gatitos</strong>
+                    <span>Toca para elegir imagenes</span>
+                  </div>
+                  <input id="photo-upload" type="file" accept="image/*" multiple hidden />
+                </label>
 
                 <ul class="upload-preview" id="upload-preview" aria-live="polite"></ul>
-              </article>
-              <p class="activity-note" id="home-note" aria-live="polite">Selecciona un dispensador para comenzar.</p>
+              </section>
+              <p class="activity-note" id="home-note" aria-live="polite">Completa el formulario para registrar una nueva alimentacion.</p>
             </div>
           </section>
 
@@ -306,18 +133,60 @@
                       <p class="reserve-kpi"><span id="reserve-value">25.0</span><small>kg</small></p>
                       <p class="reserve-copy">disponibles en reserva</p>
                     </div>
+
                     <div class="meter meter--reserve" aria-label="Nivel de reserva general">
-                      <div class="meter__track"><div class="meter__fill meter__fill--reserve" id="reserve-fill"></div></div>
+                      <div class="meter__track"><div class="meter__fill meter__fill--reserve" id="reserve-fill" style="width: 50%"></div></div>
                       <div class="meter__labels"><span>0 kg</span><span>50 kg max.</span></div>
                     </div>
+
                     <button class="dashed-action" id="reserve-update" type="button">+ Actualizar cantidad de reserva</button>
                   </div>
                 </article>
               </section>
 
               <div class="divider-title" aria-hidden="true"><span></span><strong>Dispensadores</strong><span></span></div>
-              <section class="dispenser-list" id="dispenser-list" aria-label="Lista de dispensadores"></section>
-              <p class="activity-note" id="dispensers-note" aria-live="polite">Toca un dispensador para usarlo como contexto del control manual.</p>
+
+              <section class="dispenser-list">
+                <article class="dispenser-card dispenser-card--lavender" data-dispenser="Soda El Lago">
+                  <button class="icon-action icon-action--primary configure-dispenser" type="button" aria-label="Configurar Soda El Lago">
+                    <img src="http://localhost:3845/assets/a8ccf26b1c48f639306dc13024ef88e6a709e8d2.svg" alt="" aria-hidden="true" />
+                  </button>
+                  <div class="dispenser-card__header"><h3>Soda El Lago</h3></div>
+                  <div class="metric-row">
+                    <div class="metric-label"><img src="http://localhost:3845/assets/71ec52319785187013d5a89ee09f267f56976b66.svg" alt="" aria-hidden="true" /><span>Nivel de tolva</span></div>
+                    <strong>8.5kg</strong>
+                  </div>
+                  <div class="meter"><div class="meter__track"><div class="meter__fill meter__fill--purple" style="width: 85%"></div></div><p>85% de capacidad</p></div>
+                  <div class="soft-stat"><div class="metric-label"><img src="http://localhost:3845/assets/bfd2faab126b1415aa480b8855df5bd2c60d1cbc.svg" alt="" aria-hidden="true" /><span>Intervalo minimo</span></div><strong>15 min</strong></div>
+                  <div class="assigned-row"><div class="metric-label"><span aria-hidden="true">🐱</span><span>Gatos asignados</span></div><div class="cat-tags"><span>Michi</span><span>Luna</span></div></div>
+                  <div class="footer-row"><div class="metric-label"><img src="http://localhost:3845/assets/c2771b8ca2b7e36a20948105203958dd555fa579.svg" alt="" aria-hidden="true" /><span>Hoy</span></div><strong>2 veces</strong></div>
+                </article>
+
+                <article class="dispenser-card dispenser-card--neutral" data-dispenser="Forestal">
+                  <button class="icon-action icon-action--primary configure-dispenser" type="button" aria-label="Configurar Forestal">
+                    <img src="http://localhost:3845/assets/a8ccf26b1c48f639306dc13024ef88e6a709e8d2.svg" alt="" aria-hidden="true" />
+                  </button>
+                  <div class="dispenser-card__header dispenser-card__header--status"><h3>Forestal</h3><span class="status-badge status-badge--offline"><img src="http://localhost:3845/assets/b32f9c39c68ac7b45e188edd34293aa2b79c8903.svg" alt="" aria-hidden="true" />Desconectado</span></div>
+                  <div class="metric-row"><div class="metric-label"><img src="http://localhost:3845/assets/71ec52319785187013d5a89ee09f267f56976b66.svg" alt="" aria-hidden="true" /><span>Nivel de tolva</span></div><strong>6.2kg</strong></div>
+                  <div class="meter"><div class="meter__track"><div class="meter__fill meter__fill--purple" style="width: 62%"></div></div><p>62% de capacidad</p></div>
+                  <div class="soft-stat"><div class="metric-label"><img src="http://localhost:3845/assets/bfd2faab126b1415aa480b8855df5bd2c60d1cbc.svg" alt="" aria-hidden="true" /><span>Intervalo minimo</span></div><strong>15 min</strong></div>
+                  <div class="assigned-row"><div class="metric-label"><span aria-hidden="true">🐱</span><span>Gatos asignados</span></div><div class="cat-tags"><span>Pelusa</span><span>Tigre</span></div></div>
+                  <div class="footer-row"><div class="metric-label"><img src="http://localhost:3845/assets/c2771b8ca2b7e36a20948105203958dd555fa579.svg" alt="" aria-hidden="true" /><span>Hoy</span></div><strong>1 vez</strong></div>
+                </article>
+
+                <article class="dispenser-card dispenser-card--warm" data-dispenser="D3">
+                  <button class="icon-action icon-action--primary configure-dispenser" type="button" aria-label="Configurar D3">
+                    <img src="http://localhost:3845/assets/a8ccf26b1c48f639306dc13024ef88e6a709e8d2.svg" alt="" aria-hidden="true" />
+                  </button>
+                  <div class="dispenser-card__header dispenser-card__header--status"><h3>D3</h3><span class="status-badge status-badge--low"><img src="http://localhost:3845/assets/cbe12d571f0fd38b290fa25cd68811fc2140380d.svg" alt="" aria-hidden="true" />Bajo</span></div>
+                  <div class="metric-row"><div class="metric-label"><img src="http://localhost:3845/assets/71ec52319785187013d5a89ee09f267f56976b66.svg" alt="" aria-hidden="true" /><span>Nivel de tolva</span></div><strong>1.5kg</strong></div>
+                  <div class="meter"><div class="meter__track"><div class="meter__fill meter__fill--warm" style="width: 15%"></div></div><p>15% de capacidad</p></div>
+                  <div class="soft-stat"><div class="metric-label"><img src="http://localhost:3845/assets/bfd2faab126b1415aa480b8855df5bd2c60d1cbc.svg" alt="" aria-hidden="true" /><span>Intervalo minimo</span></div><strong>15 min</strong></div>
+                  <div class="assigned-row"><div class="metric-label"><span aria-hidden="true">🐱</span><span>Gatos asignados</span></div><div class="cat-tags"><span>Nala</span><span>Simba</span></div></div>
+                  <div class="footer-row"><div class="metric-label"><img src="http://localhost:3845/assets/c2771b8ca2b7e36a20948105203958dd555fa579.svg" alt="" aria-hidden="true" /><span>Hoy</span></div><strong>1 vez</strong></div>
+                </article>
+              </section>
+              <p class="activity-note" id="dispensers-note" aria-live="polite">Selecciona un dispensador para volver al control manual con ese contexto.</p>
             </div>
           </section>
 
@@ -365,10 +234,77 @@
               </section>
 
               <section class="history-groups" id="history-groups" aria-label="Lista de alimentaciones por fecha"></section>
+
+              <section class="history-gallery" aria-label="Fotos de los gatitos" data-node-id="7:3025">
+                <div class="history-gallery__header">
+                  <img class="history-gallery__icon" src="http://localhost:3845/assets/cbf461ed8ad32ddc1f34bb50789238e1543c774c.svg" alt="" aria-hidden="true" />
+                  <h3>Fotos de los gatitos</h3>
+                  <span class="history-gallery__count" id="history-gallery-count">3 fotos</span>
+                </div>
+                <div class="history-gallery__grid" id="history-gallery-grid" data-node-id="7:3036">
+                  <img src="http://localhost:3845/assets/c8733df2469395399c64023cb348d71a506d1f01.png" alt="Michi" />
+                  <img src="http://localhost:3845/assets/5591489bf90b87890b4464e0241d1eb9a6f87ec0.png" alt="Luna" />
+                  <img src="http://localhost:3845/assets/5a30955f92cbb34c09db036ed0b3216bbe830dd2.png" alt="Pelusa" />
+                </div>
+              </section>
+
               <p class="activity-note" id="history-note" aria-live="polite">Ajusta los filtros para revisar el historial de alimentaciones.</p>
             </div>
           </section>
         </div>
+
+        <section class="config-modal" id="config-modal" aria-hidden="true" hidden>
+          <div class="config-modal__backdrop" id="config-modal-backdrop"></div>
+          <article class="config-modal__panel" data-node-id="7:4635" aria-labelledby="config-modal-title" role="dialog" aria-modal="true">
+            <header class="config-modal__header">
+              <h2 id="config-modal-title">Configurar Soda El Lago</h2>
+              <button class="config-modal__close" id="config-modal-close" type="button" aria-label="Cerrar configuracion">
+                <img src="http://localhost:3845/assets/854b1cfc96817ad0a87f175560e6974df6ac5adb.svg" alt="" aria-hidden="true" />
+              </button>
+            </header>
+
+            <div class="config-modal__body">
+              <section class="config-section" aria-labelledby="config-frequency-heading">
+                <h3 id="config-frequency-heading">
+                  <img src="http://localhost:3845/assets/48f3acd3ceb57c429581cb5068f0e724fc5df2ae.svg" alt="" aria-hidden="true" />
+                  Frecuencia Minima entre Alimentaciones
+                </h3>
+                <p>Evita que los gatos se acerquen infinitamente al dispensador.</p>
+                <div class="config-frequency__row">
+                  <span>Intervalo:</span>
+                  <strong id="config-frequency-value">15 min</strong>
+                </div>
+                <input class="config-frequency__slider" id="config-frequency-slider" type="range" min="5" max="60" step="5" value="15" />
+                <div class="config-frequency__limits"><span>5 min</span><span>60 min</span></div>
+                <button class="config-save-frequency" id="config-save-frequency" type="button">Guardar Frecuencia</button>
+              </section>
+
+              <section class="config-section" aria-labelledby="config-assigned-heading">
+                <h3 id="config-assigned-heading">
+                  <img src="http://localhost:3845/assets/f1e74186cee568e68bd02438f54bb41f6dc0cc21.svg" alt="" aria-hidden="true" />
+                  Gatos Asignados (<span id="assigned-count">0</span>)
+                </h3>
+                <ul class="config-assigned-list" id="config-assigned-list"></ul>
+              </section>
+
+              <section class="config-section" aria-labelledby="config-add-heading">
+                <h3 id="config-add-heading">Agregar Nuevo Gato</h3>
+                <div class="config-add-row">
+                  <input id="config-new-cat" type="text" placeholder="Nombre del gato" maxlength="20" />
+                  <button id="config-add-cat" type="button" disabled>
+                    <img src="http://localhost:3845/assets/21b05ef5dff198931d7c754ce6940276e69a2377.svg" alt="" aria-hidden="true" />
+                    Agregar
+                  </button>
+                </div>
+              </section>
+
+              <section class="config-section" aria-labelledby="config-existing-heading">
+                <h3 id="config-existing-heading">Asignar Gatos Existentes</h3>
+                <ul class="config-existing-list" id="config-existing-list"></ul>
+              </section>
+            </div>
+          </article>
+        </section>
 
         <nav class="bottom-nav" aria-label="Navegacion principal">
           <button class="nav-link nav-link--active" type="button" data-nav-target="home">
