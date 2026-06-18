@@ -711,6 +711,11 @@ select.soft-input,
   background: var(--danger);
 }
 
+.status-badge--online {
+  color: #fff;
+  background: #16a34a;
+}
+
 .metric-row,
 .footer-row,
 .soft-stat,
