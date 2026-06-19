@@ -262,6 +262,32 @@ select.soft-input,
   padding-right: 34px;
 }
 
+/* Input de fecha: sin la flecha de dropdown de los <select> (tiene su propio
+   icono nativo de calendario) */
+.history-control--date {
+  background-image: none;
+  padding-right: 12px;
+}
+
+/* Boton para limpiar el filtro de fecha: mismo padding/borde/radio que los
+   controles del card, ancho completo para que no se desborde */
+.history-clear-button {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #fff;
+  color: #717182;
+  cursor: pointer;
+}
+
+.history-clear-button:focus {
+  outline: none;
+  border-color: rgba(152, 16, 250, 0.36);
+  box-shadow: 0 0 0 4px rgba(152, 16, 250, 0.12);
+}
+
 .portion-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -711,6 +737,11 @@ select.soft-input,
   background: var(--danger);
 }
 
+.status-badge--online {
+  color: #fff;
+  background: #16a34a;
+}
+
 .metric-row,
 .footer-row,
 .soft-stat,
@@ -933,6 +964,22 @@ select.soft-input,
   min-height: 18px;
   color: #6a7282;
   font-size: 12px;
+}
+
+/* Aviso sutil de cooldown del NFC autonomo (cerca del estado en Inicio) */
+.nfc-cooldown {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(152, 16, 250, 0.10);
+  color: var(--accent-end);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nfc-cooldown[hidden] {
+  display: none;   /* el display:inline-block anularia el [hidden] por defecto */
 }
 
 .bottom-nav {
