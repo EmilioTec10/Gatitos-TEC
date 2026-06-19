@@ -89,6 +89,7 @@
                 <ul class="upload-preview" id="upload-preview" aria-live="polite"></ul>
               </section>
               <p class="activity-note" id="home-note" aria-live="polite">Conectando con el dispensador...</p>
+              <p class="nfc-cooldown" id="nfc-cooldown-note" aria-live="polite" hidden></p>
             </div>
           </section>
 
@@ -208,11 +209,12 @@
                           <option value="sensor">Sensor</option>
                         </select>
                       </label>
-                      <button id="date-sort" class="history-sort-button" type="button" aria-pressed="false">
-                        <span>Fecha</span>
-                        <img src="./icono%20reloj.png" alt="" aria-hidden="true" />
-                      </button>
+                      <label class="field field--compact">
+                        <span class="visually-hidden">Filtrar por fecha</span>
+                        <input id="filter-date" class="history-control history-control--date" type="date" />
+                      </label>
                     </div>
+                    <button id="filter-date-clear" class="history-clear-button" type="button">Limpiar fecha</button>
                   </div>
                 </article>
               </section>

@@ -11,10 +11,10 @@
 
 // IP del ESP32 en tu red local. Cambia las X por la IP que imprime el ESP32
 // por el monitor serie al conectarse al WiFi (ej. http://192.168.1.42).
-const ESP32_URL = "http://10.49.8.203";
+const ESP32_URL = "http://192.168.100.8";
 
 // Debe coincidir con HOPPER_CAPACITY del firmware (en gramos).
-const HOPPER_CAPACITY_G = 1000;
+const HOPPER_CAPACITY_G = 100;
 
 // Cada cuanto se consulta /status (ms).
 const POLL_INTERVAL_MS = 2000;
@@ -141,6 +141,7 @@ class DispenserApp {
     this.manualFeedButton = document.querySelector("#manual-feed");
     this.tareButton = document.querySelector("#tare-button");
     this.homeNote = document.querySelector("#home-note");
+    this.nfcCooldownNote = document.querySelector("#nfc-cooldown-note");
     this.photoUpload = document.querySelector("#photo-upload");
     this.uploadPreview = document.querySelector("#upload-preview");
 
@@ -164,7 +165,8 @@ class DispenserApp {
     this.historyGroups = document.querySelector("#history-groups");
     this.dispenserFilter = document.querySelector("#filter-dispenser");
     this.typeFilter = document.querySelector("#filter-type");
-    this.dateSortButton = document.querySelector("#date-sort");
+    this.dateFilter = document.querySelector("#filter-date");
+    this.dateClearButton = document.querySelector("#filter-date-clear");
     this.historyNote = document.querySelector("#history-note");
   }
 
@@ -268,13 +270,13 @@ class DispenserApp {
       });
     });
 
-    [this.dispenserFilter, this.typeFilter].forEach((control) => {
+    [this.dispenserFilter, this.typeFilter, this.dateFilter].forEach((control) => {
       control.addEventListener("change", () => this.renderHistory());
     });
 
-    this.dateSortButton.addEventListener("click", () => {
-      this.isDateDescending = !this.isDateDescending;
-      this.dateSortButton.setAttribute("aria-pressed", String(!this.isDateDescending));
+    // Limpia el filtro de fecha y vuelve a mostrar todas las entradas
+    this.dateClearButton.addEventListener("click", () => {
+      this.dateFilter.value = "";
       this.renderHistory();
     });
   }
@@ -447,6 +449,7 @@ class DispenserApp {
       if (this.currentView !== "history") {
         this.setHomeNote("Dispensador desconectado. Revisa la IP y el WiFi del ESP32.");
       }
+      this.nfcCooldownNote.hidden = true;   // sin datos -> no mostrar cooldown
       return;
     }
 
@@ -462,13 +465,28 @@ class DispenserApp {
     this.hopperPct.textContent = `${Math.round(pct)}% de capacidad`;
 
     this.lastDispensedEl.textContent = `${Number(data.lastDispensed) || 0} g`;
-    this.plateWeightEl.textContent = `${Number(data.plateWeight) || 0} g`;
+    // Valor absoluto: la celda puede reportar negativo segun su orientacion
+    // (mismo criterio que el fabs() del firmware).
+    this.plateWeightEl.textContent = `${Math.abs(Number(data.plateWeight) || 0)} g`;
 
     this.reserveValue.textContent = (hopperG / 1000).toFixed(2);
     this.reserveFill.style.width = `${pct}%`;
 
     if (this.currentView === "home" && this.homeNote.textContent.startsWith("Conectando")) {
       this.setHomeNote("Dispensador conectado. Listo para alimentar.");
+    }
+
+    // Aviso de cooldown del NFC autonomo (el dispensado manual NO se ve afectado).
+    // nfcCooldownRemaining viene en segundos; lo mostramos en minutos redondeados
+    // hacia arriba, igual que el LCD del ESP32.
+    const cooldownSec = Number(data.nfcCooldownRemaining) || 0;
+    if (cooldownSec > 0) {
+      const mins = Math.ceil(cooldownSec / 60);
+      this.nfcCooldownNote.textContent = `NFC en espera: ${mins} min restantes · el manual sigue disponible`;
+      this.nfcCooldownNote.hidden = false;
+    } else {
+      this.nfcCooldownNote.hidden = true;
+      this.nfcCooldownNote.textContent = "";
     }
   }
 
@@ -541,7 +559,10 @@ class DispenserApp {
       const matchesDispenser =
         this.dispenserFilter.value === "all" || entry.dispenser === this.dispenserFilter.value;
       const matchesType = this.typeFilter.value === "all" || entry.type === this.typeFilter.value;
-      return matchesDispenser && matchesType;
+      // Sin fecha seleccionada -> no filtra por fecha (entry.date es "YYYY-MM-DD",
+      // mismo formato que el value del <input type="date">).
+      const matchesDate = !this.dateFilter.value || entry.date === this.dateFilter.value;
+      return matchesDispenser && matchesType && matchesDate;
     });
   }
 
@@ -580,6 +601,7 @@ class DispenserApp {
     if (this.typeFilter.value !== "all") {
       fragments.push(`tipo ${this.typeFilter.options[this.typeFilter.selectedIndex].text}`);
     }
+    if (this.dateFilter.value) fragments.push(`fecha ${this.dateFilter.value}`);
     fragments.push(this.isDateDescending ? "fecha descendente" : "fecha ascendente");
     this.setHistoryNote(`Mostrando ${entries.length} registro(s) para ${fragments.join(", ")}.`);
   }
