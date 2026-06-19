@@ -17,11 +17,10 @@ plato, historial) y forzar una alimentación manual desde una app web.
 
 ## Integrantes
 
-> _Completar con los nombres del equipo:_
-
-- Nombre 1 — carné
-- Nombre 2 — carné
-- Nombre 3 — carné
+- Sebastián Hernández Bonilla
+- Emilio Alfaro Mayorga
+- Jimena Astorga Ruíz
+- Alexandra	Rodríguez Salas
 
 ## Componentes de hardware y mapeo de pines
 
